@@ -14,8 +14,8 @@ the result is:
 [5, 6]
 
 issue: my_list is mutable, can not use default [] as paramter, it should be None and then initialize inside the function. 
-       default [] is created only once, when the function is defined, rather than creating a new instance each time the function is called. 
-       so all calls to add_to_list which don't provide my_list will share the same list object, it will cause an unexpected accumulation of values.
+        default [] is created only once, when the function is defined, rather than creating a new instance each time the function is called. 
+        so all calls to add_to_list which don't provide my_list will share the same list object, it will cause an unexpected accumulation of values.
 """
 def add_to_list(value, my_list=None):
     if my_list is None:
@@ -55,7 +55,7 @@ the result is:
 Hello, my name is {name} and I am {age} years old.
 
 issue 1: string formatting issue, it maybe need to use f strings
-issue 2: coding standard issee, usually use string + variabel
+issue 2: for very simple, static string combinations, usually use string + variabel
 """
 def format_greeting(name, age):
     # return f"Hello, my name is {name} and I am {age} years old."
@@ -88,7 +88,8 @@ the result is:
 1
 1
 
-issue: the counter cannot continue counting through multiple calls, counter should use class variable to count the number of instances
+issue: the counter cannot continue counting through multiple calls, 
+        counter should use class variable to count the number of instances
 """
 
 class Counter:
@@ -140,7 +141,7 @@ print(counter.count)
 the result may be less than 10000.
 
 issue: when multiple threads are running, they may all read the same old value, and then increment it, the result will be less than expected.
-       we can use threading.Lock to ensure that only one thread can modify the count at a time.
+        use threading.Lock to ensure that only one thread can modify the count at a time.
 """
 import threading
 class SafeCounter:
